@@ -6,7 +6,7 @@
     <style>
         form {
             display: block;
-            margin-top: 0em;
+            margin-top: 0;
         }
     </style>
 </head>
@@ -18,26 +18,91 @@
     https://www.w3schools.com/html/tryit.asp?filename=tryhtml_elem_output-->
 
 <h3>Suscribase a Nuestro Portal de Noticias! Crear una cuenta es rápido!</h3>
-Nombre:
-Apellido:
-Sexo: Masculino Femenino
-Edad:
-Email:
-Usuario:
-Password:
-Confirmar Password:
+<form id="formulario1">
+    <p>
+        <label>
+            Nombre:
+            <input name="name" type="text" size="40">
+        </label>
+    </p>
+    <p>
+        <label>
+            Apellido:
+            <input name="lastname" type="text" size="40">
+        </label>
+    </p>
+    <p>
+        <label>
+            Sexo:
+            <input type="radio" name="gender" value="male" size="40">Masculino
+            <input type="radio" name="gender" value="female" size="40">Femenino
+        </label>
+    </p>
+    <p>
+        <label>
+            Edad:
+            <input type="number" name="age" min="15" max="120" step="1" size="40">
+        </label>
+    </p>
+    <p>
+        <label>
+            Email:
+            <input type="email" name="mail" size="40">
+        </label>
+    </p>
+    <p>
+        <label>
+            Usuario:
+            <input type="text" name="user" size="40">
+        </label>
+    </p>
+    <p>
+        <label>
+            Password:
+            <input type="password" name="psw" size="40">
+        </label>
+    </p>
+    <p>
+        <label>
+            Confirmar Password:
+            <input type="password" name="psw" size="40">
+        </label>
+    </p>
+    <p>
+        <label>
+            Tipo de servicio:
+            <select name="services">
+                <option value="free">Free</option>
+                <option value="std">Standard</option>
+                <option value="premium">Premium</option>
+            </select>
+        </label>
+    </p>
+    <p>
+        <label>
+            Tema:
+            <input type="checkbox" name="policy" value="politica">
+            Política
+            <input type="checkbox" name="business" value="negocios">
+            Negocios
+            <input type="checkbox" name="tech" value="tecnologia">
+            Tecnología
+            <input type="checkbox" name="health" value="salud">
+            Salud
+        </label>
+    </p>
+    <p>
+        <label>
+            Agregue un comentario:
+            <textarea name="comment" rows="10" cols="40">Escribe aqui tus comentarios</textarea>
+        </label>
+    </p>
+    <p>
+        <label>
+            <button type="button">Enviar</button>
+        </label>
 
-Tipo de servicio: Free / Standard / Premium
-Tema:
-Política
-Negocios
-Tecnología
-Salud
-
-Agregue un comentario:
-
-Boton de Enviar
-
-
+    </p>
+</form>
 </body>
 </html>
