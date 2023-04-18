@@ -1,0 +1,22 @@
+body{
+    text-align: center;
+    font-family: sans-serif;
+    background: linear-gradient(to right, orangered, salmon);
+}
+div {
+    border: 2px solid #19ac67;
+    margin: 5px;
+    padding: 3px 10px;
+    border-radius: 15px;
+    box-shadow: 10px 5px #0202;
+}
+img{
+    width: 50px;
+    float: left;
+    border-radius: 50%;
+}
+div.special h3{
+    font-family: 'Chivo Mono', monospace;
+    text-shadow: 3px 2px #999;
+}
+
