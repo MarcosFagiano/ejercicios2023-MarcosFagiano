@@ -32,3 +32,31 @@ function changeUnit(id, value){
     }
 
 }
+/**
+ * Conversion de grados-radianes
+ * @method changeGR
+ * @param {string} id - id de los inputs
+ * @param {number} rad - valor de los radianes
+ * @param {number} grad - valor de los grados
+ * @return
+ */
+
+function changeGR(id){
+    var rad, grad;
+    if(isNaN(document.getElementById("grados").value)||isNaN(document.getElementById("radianes").value)) {
+        alert('Se ingreso un valor invalido.');
+        document.getElementById("grados").value = "";
+        document.getElementById("radianes").value = "";
+    }else if(id=="grados"){
+        grad = document.getElementById("grados").value;
+        rad = (grad*Math.PI)/180;
+        document.getElementById("grados").value = grad;
+        document.getElementById("radianes").value = rad;
+    }else if(id=="radianes"){
+        rad = document.getElementById("radianes").value;
+        grad = (rad*180)/Math.PI;
+        document.getElementById("grados").value = grad;
+        document.getElementById("radianes").value = rad;
+    }
+
+}
