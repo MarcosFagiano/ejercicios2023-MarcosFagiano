@@ -61,12 +61,9 @@ function changeGR(id){
 }
 
 /**
- * Conversion de grados-radianes
+ * mostrar/ocultar div
  * @method showHide
- * @param {string} id - id de los inputs
- * @param {number} rad - valor de los radianes
- * @param {number} grad - valor de los grados
- * @return
+ * @param {string} valueMo - valor del id mostrat/ocultar
  */
 
 function showHide(valueMo){
@@ -74,5 +71,87 @@ function showHide(valueMo){
         document.getElementById("divShow").style.display = 'block';
     }else if(valueMo=="val_ocultar"){
         document.getElementById("divShow").style.display = 'none';
+    }
+}
+
+/**
+ * suma
+ * @method plus
+ * @param {number} num1 - valor de la variable 1
+ * @param {number} num2 - valor de la variable 2
+ * @return
+ */
+function plus(){
+    var num1, num2;
+    if(isNaN(document.getElementsByName("sum_num1")[0].value)||
+        isNaN(document.getElementsByName("sum_num2")[0].value)) {
+        alert('Se ingreso un valor invalido.');
+        document.getElementsByName("sum_num1")[0].value = "";
+        document.getElementsByName("sum_num2")[0].value = "";
+    } else{
+        num1 = document.getElementsByName("sum_num1")[0].value;
+        num2 = document.getElementsByName("sum_num2")[0].value;
+        document.getElementsByName("sum_total")[0].value = Number(num1) + Number(num2);
+    }
+}
+/**
+ * minus
+ * @method minus
+ * @param {number} num1 - valor de la variable 1
+ * @param {number} num2 - valor de la variable 2
+ * @return
+ */
+function minus(){
+    var num1, num2;
+    if(isNaN(document.getElementsByName("res_num1")[0].value)||
+        isNaN(document.getElementsByName("res_num2")[0].value)) {
+        alert('Se ingreso un valor invalido.');
+        document.getElementsByName("res_num1")[0].value = "";
+        document.getElementsByName("res_num2")[0].value = "";
+    } else {
+        num1 = document.getElementsByName("res_num1")[0].value;
+        num2 = document.getElementsByName("res_num2")[0].value;
+        document.getElementsByName("res_total")[0].value = Number(num1) - Number(num2);
+    }
+}
+/**
+ * multiplication
+ * @method multiplication
+ * @param {number} num1 - valor de la variable 1
+ * @param {number} num2 - valor de la variable 2
+ * @return
+ */
+
+function multiplication(){
+    var num1, num2;
+    if(isNaN(document.getElementsByName("mul_num1")[0].value)||
+        isNaN(document.getElementsByName("mul_num2")[0].value)) {
+        alert('Se ingreso un valor invalido.');
+        document.getElementsByName("mul_num1")[0].value = "";
+        document.getElementsByName("mul_num2")[0].value = "";
+    } else {
+        num1 = document.getElementsByName("mul_num1")[0].value;
+        num2 = document.getElementsByName("mul_num2")[0].value;
+        document.getElementsByName("mul_total")[0].value = Number(num1) * Number(num2);
+    }
+}
+/**
+ * division
+ * @method division
+ * @param {number} num1 - valor de la variable 1
+ * @param {number} num2 - valor de la variable 2
+ * @return
+ */
+function division(){
+    var num1, num2;
+    if(isNaN(document.getElementsByName("div_num1")[0].value)||
+        isNaN(document.getElementsByName("div_num2")[0].value)) {
+        alert('Se ingreso un valor invalido.');
+        document.getElementsByName("div_num1")[0].value = "";
+        document.getElementsByName("div_num2")[0].value = "";
+    } else {
+        num1 = document.getElementsByName("div_num1")[0].value;
+        num2 = document.getElementsByName("div_num2")[0].value;
+        document.getElementsByName("div_total")[0].value = Number(num1) / Number(num2);
     }
 }
