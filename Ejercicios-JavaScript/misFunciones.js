@@ -58,5 +58,21 @@ function changeGR(id){
         document.getElementById("grados").value = grad;
         document.getElementById("radianes").value = rad;
     }
+}
 
+/**
+ * Conversion de grados-radianes
+ * @method showHide
+ * @param {string} id - id de los inputs
+ * @param {number} rad - valor de los radianes
+ * @param {number} grad - valor de los grados
+ * @return
+ */
+
+function showHide(valueMo){
+    if(valueMo=="val_mostrar"){
+        document.getElementById("divShow").style.display = 'block';
+    }else if(valueMo=="val_ocultar"){
+        document.getElementById("divShow").style.display = 'none';
+    }
 }
