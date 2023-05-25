@@ -201,3 +201,20 @@ function showAns(){
     document.getElementById("dist").value= can + " " + un;
 
 }
+
+function saveLocalStorage(){
+    let distancia, unidad;
+    distancia = document.getElementById('distancia').value;
+    unidad = document.getElementsByName("unidades")[0].value;
+    localStorage.setItem("distanciaLS", distancia);
+    localStorage.setItem("unidadLS", unidad);
+    window.open("segundaWeb_2.html");
+}
+
+function loadLocalStorage(){
+    var cant, un;
+
+    cant = localStorage.getItem("distanciaLS");
+    un = localStorage.getItem("unidadLS").split("_")[1];
+    document.getElementById("dist").value = cant + " " + un;
+}
