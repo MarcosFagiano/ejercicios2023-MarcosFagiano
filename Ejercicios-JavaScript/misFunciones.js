@@ -7,30 +7,41 @@
  */
 
 function changeUnit(id, value){
+    var metro, pulgada, pie, yarda;
+    if(value.includes(",")){
+        value=value.replace(",", ".");
+    }
     if(isNaN(value)){
         alert('Se ingreso un valor invalido.');
-        document.unit.unid_metro.value= "";
-        document.unit.unid_pulgada.value= "";
-        document.unit.unid_pie.value= "";
-        document.unit.unid_yarda.value= "";
+        metro= "";
+        pulgada= "";
+        pie= "";
+        yarda= "";
     }else if(id=="metro"){
-        document.unit.unid_pulgada.value= 39.3701*value;
-        document.unit.unid_pie.value= 3.28*value;
-        document.unit.unid_yarda.value= 1.09*value;
+        metro=value;
+        pulgada= 39.3701*value;
+        pie= 3.28*value;
+        yarda= 1.09*value;
     }else if(id=="pulgada"){
-        document.unit.unid_metro.value= 0.03*value;
-        document.unit.unid_pie.value= 0.08*value;
-        document.unit.unid_yarda.value= 0.03*value;
+        pulgada=value;
+        metro= 0.03*value;
+        pie= 0.08*value;
+        yarda= 0.03*value;
     }else if(id=="pie"){
-        document.unit.unid_metro.value= 0.3*value;
-        document.unit.unid_pulgada.value= 12*value;
-        document.unit.unid_yarda.value= 0.33*value;
+        pie=value;
+        metro= 0.3*value;
+        pulgada= 12*value;
+        yarda= 0.33*value;
     }else if(id=="yarda"){
-        document.unit.unid_metro.value= 0.91*value;
-        document.unit.unid_pie.value= 3*value;
-        document.unit.unid_pulgada.value= 36*value;
+        yarda=value;
+        metro= 0.91*value;
+        pie= 3*value;
+        pulgada= 36*value;
     }
-
+    document.unit.unid_pulgada.value= Math.round(pulgada*100)/100;
+    document.unit.unid_metro.value= Math.round(metro*100)/100;
+    document.unit.unid_pie.value= Math.round(pie*100)/100;
+    document.unit.unid_yarda.value= Math.round(yarda*100)/100;
 }
 /**
  * Conversion de grados-radianes
@@ -91,7 +102,7 @@ function plus(){
     } else{
         num1 = document.getElementsByName("sum_num1")[0].value;
         num2 = document.getElementsByName("sum_num2")[0].value;
-        document.getElementsByName("sum_total")[0].value = Number(num1) + Number(num2);
+        document.getElementsByName("sum_total")[0].innerHTML = Number(num1) + Number(num2);
     }
 }
 /**
@@ -111,7 +122,7 @@ function minus(){
     } else {
         num1 = document.getElementsByName("res_num1")[0].value;
         num2 = document.getElementsByName("res_num2")[0].value;
-        document.getElementsByName("res_total")[0].value = Number(num1) - Number(num2);
+        document.getElementsByName("res_total")[0].innerHTML = Number(num1) - Number(num2);
     }
 }
 /**
@@ -132,7 +143,7 @@ function multiplication(){
     } else {
         num1 = document.getElementsByName("mul_num1")[0].value;
         num2 = document.getElementsByName("mul_num2")[0].value;
-        document.getElementsByName("mul_total")[0].value = Number(num1) * Number(num2);
+        document.getElementsByName("mul_total")[0].innerHTML = Number(num1) * Number(num2);
     }
 }
 /**
@@ -152,6 +163,6 @@ function division(){
     } else {
         num1 = document.getElementsByName("div_num1")[0].value;
         num2 = document.getElementsByName("div_num2")[0].value;
-        document.getElementsByName("div_total")[0].value = Number(num1) / Number(num2);
+        document.getElementsByName("div_total")[0].innerHTML = Number(num1) / Number(num2);
     }
 }
