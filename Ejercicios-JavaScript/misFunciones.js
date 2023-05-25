@@ -166,3 +166,38 @@ function division(){
         document.getElementsByName("div_total")[0].innerHTML = Number(num1) / Number(num2);
     }
 }
+
+/**
+ * funcionamiento de primer pagina
+ * @method loadWeb
+ * @param {number} cant - valor a convertir
+ * @param {string}  unit - unidad a la que se desea convertir
+ * @param {string} urlComp - valor de la url completa
+ * @return
+ */
+function loadWeb(){
+    var unit, cant, urlComp;
+    cant = document.getElementById("distancia").value;
+    unit = document.getElementsByName("unidades")[0].value;
+    urlComp = "segundaWeb.html#" + cant + "#" + unit;
+    window.open(urlComp);
+
+}
+
+/**
+ * funcionamiento de la segunda web
+ * @method division
+ * @param {number} can - valor de la conversion
+ * @param {string} un - unidad a la que se convirtio
+ * @param {string} urlComp - valor de la url completa con los valores y unidades
+ * @return
+ */
+function showAns(){
+    var urlComp, can, un;
+
+    urlComp=window.location.href.split("/")[5];
+    can=urlComp.split("#")[1];
+    un=urlComp.split("#")[2].split("_")[1];
+    document.getElementById("dist").value= can + " " + un;
+
+}
