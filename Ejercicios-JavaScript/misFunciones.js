@@ -7,7 +7,7 @@
  */
 
 function changeUnit(id, value){
-    var metro, pulgada, pie, yarda;
+    let metro, pulgada, pie, yarda;
     if(value.includes(",")){
         value=value.replace(",", ".");
     }
@@ -17,22 +17,22 @@ function changeUnit(id, value){
         pulgada= "";
         pie= "";
         yarda= "";
-    }else if(id=="metro"){
+    }else if(id==="metro"){
         metro=value;
         pulgada= 39.3701*value;
         pie= 3.28*value;
         yarda= 1.09*value;
-    }else if(id=="pulgada"){
+    }else if(id==="pulgada"){
         pulgada=value;
         metro= 0.03*value;
         pie= 0.08*value;
         yarda= 0.03*value;
-    }else if(id=="pie"){
+    }else if(id==="pie"){
         pie=value;
         metro= 0.3*value;
         pulgada= 12*value;
         yarda= 0.33*value;
-    }else if(id=="yarda"){
+    }else if(id==="yarda"){
         yarda=value;
         metro= 0.91*value;
         pie= 3*value;
@@ -53,7 +53,7 @@ function changeUnit(id, value){
  */
 
 function changeGR(id){
-    var rad, grad;
+    let rad, grad;
     if(isNaN(document.getElementById("grados").value)||isNaN(document.getElementById("radianes").value)) {
         alert('Se ingreso un valor invalido.');
         document.getElementById("grados").value = "";
@@ -93,7 +93,7 @@ function showHide(valueMo){
  * @return
  */
 function plus(){
-    var num1, num2;
+    let num1, num2;
     if(isNaN(document.getElementsByName("sum_num1")[0].value)||
         isNaN(document.getElementsByName("sum_num2")[0].value)) {
         alert('Se ingreso un valor invalido.');
@@ -113,7 +113,7 @@ function plus(){
  * @return
  */
 function minus(){
-    var num1, num2;
+    let num1, num2;
     if(isNaN(document.getElementsByName("res_num1")[0].value)||
         isNaN(document.getElementsByName("res_num2")[0].value)) {
         alert('Se ingreso un valor invalido.');
@@ -134,7 +134,7 @@ function minus(){
  */
 
 function multiplication(){
-    var num1, num2;
+    let num1, num2;
     if(isNaN(document.getElementsByName("mul_num1")[0].value)||
         isNaN(document.getElementsByName("mul_num2")[0].value)) {
         alert('Se ingreso un valor invalido.');
@@ -154,7 +154,7 @@ function multiplication(){
  * @return
  */
 function division(){
-    var num1, num2;
+    let num1, num2;
     if(isNaN(document.getElementsByName("div_num1")[0].value)||
         isNaN(document.getElementsByName("div_num2")[0].value)) {
         alert('Se ingreso un valor invalido.');
@@ -176,7 +176,7 @@ function division(){
  * @return
  */
 function loadWeb(){
-    var unit, cant, urlComp;
+    let unit, cant, urlComp;
     cant = document.getElementById("distancia").value;
     unit = document.getElementsByName("unidades")[0].value;
     urlComp = "segundaWeb.html#" + cant + "#" + unit;
@@ -193,7 +193,7 @@ function loadWeb(){
  * @return
  */
 function showAns(){
-    var urlComp, can, un;
+    let urlComp, can, un;
 
     urlComp=window.location.href.split("/")[5];
     can=urlComp.split("#")[1];
@@ -212,9 +212,24 @@ function saveLocalStorage(){
 }
 
 function loadLocalStorage(){
-    var cant, un;
+    let cant, un;
 
     cant = localStorage.getItem("distanciaLS");
     un = localStorage.getItem("unidadLS").split("_")[1];
     document.getElementById("dist").value = cant + " " + un;
+}
+
+function draw(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var yMax = canvas.height;
+    var xMax = canvas.width;
+    var border = 5
+    ctx.fillStyle = "#333899";
+    ctx.fillRect(0+border, yMax-40-border, 40, 40);
+
+    ctx.arc(xMax/2, yMax/2, 20, 0, 2*Math.PI);
+    ctx.fillStyle = "#998333"
+    ctx.fill();
 }
