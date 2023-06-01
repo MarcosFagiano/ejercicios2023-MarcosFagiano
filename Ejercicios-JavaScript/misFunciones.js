@@ -220,12 +220,12 @@ function loadLocalStorage(){
 }
 
 function draw(){
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
 
-    var yMax = canvas.height;
-    var xMax = canvas.width;
-    var border = 5
+    let yMax = canvas.height;
+    let xMax = canvas.width;
+    let border = 5
     ctx.fillStyle = "#333899";
     ctx.fillRect(0+border, yMax-40-border, 40, 40);
 
@@ -233,3 +233,44 @@ function draw(){
     ctx.fillStyle = "#998333"
     ctx.fill();
 }
+
+var bandera;
+function drawPaint(e){
+    var canvas = document.getElementById("paint");
+    var ctx = canvas.getContext("2d");
+
+    var posX = e.clientX;
+    var posY = e.clientY;
+    console.log(posX, posY);
+    ctx.fillStyle = "#00000000"
+    canvas.onmousedown = function (){bandera = true};
+    canvas.onmouseup = function (){bandera = false};
+
+    if(bandera) {
+        ctx.fillRect(posX, posY, 10, 10);
+        ctx.fill();
+    }
+}
+document.addEventListener("DOMContentLoaded", function() {
+    let canvas = document.getElementById("paint");
+    let ctx = canvas.getContext("2d");
+
+    canvas.addEventListener("mousemove", function(e) {
+        drawPaint(e, ctx);
+    });
+
+    function drawPaint(e, context) {
+        var posX = e.clientX - canvas.offsetLeft;
+        var posY = e.clientY - canvas.offsetTop;
+
+        context.fillStyle = "#000000";
+        context.fillRect(posX, posY, 5, 5);
+        context.fill();
+    }
+});
+
+ function clear(){
+     let canvas = document.getElementById("paint");
+     let ctx = canvas.getContext("2d");
+     canvas.width = canvas.width;
+ }
