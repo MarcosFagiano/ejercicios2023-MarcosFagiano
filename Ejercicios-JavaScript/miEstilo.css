@@ -84,4 +84,12 @@ li a:hover:not(.active) {
     background-color: #555;
     color: white;
 }
+#pong_game{
+    border: 2px solid black;
+
+
+}
+body{
+    background: rgb(0, 0, 0);
+}
 
